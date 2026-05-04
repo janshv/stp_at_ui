@@ -1,5 +1,4 @@
 from typing import Any, Generator
-
 import pytest
 from playwright.sync_api import Page, Playwright, expect
 
