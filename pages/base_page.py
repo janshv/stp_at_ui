@@ -9,3 +9,6 @@ class BasePage:
 
     def reload(self):
         self.page.reload(wait_until='networkidle')
+
+    def wait_for_a_while(self, timeout: int):
+        self.page.wait_for_timeout(timeout=timeout)
