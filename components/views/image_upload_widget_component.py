@@ -5,7 +5,8 @@ from components.views.empty_view_component import EmptyViewComponent
 from elements.button import Button
 from elements.icon import Icon
 from elements.image import Image
-from elements.input import Input
+from elements.file_input import FileInput
+from elements.text import Text
 
 
 class ImageUploadWidgetComponent(BaseComponent):
@@ -14,15 +15,15 @@ class ImageUploadWidgetComponent(BaseComponent):
 
         self.preview_empty_view = EmptyViewComponent(page, identifier)
 
-        self.preview_image = Image(page, f'{identifier}-image-upload-widget-preview-image', 'Upload')
+        self.preview_image = Image(page, f'{identifier}-image-upload-widget-preview-image', 'Preview')
 
-        self.image_upload_info_icon = Icon(page, f'{identifier}-image-upload-widget-info-icon', 'Icon')
-        self.image_upload_info_title = Image(page, f'{identifier}-image-upload-widget-info-title-text', 'Title')
-        self.image_upload_info_description = Image(page, f'{identifier}-image-upload-widget-info-description-text', 'Description')
+        self.image_upload_info_icon = Icon(page, f'{identifier}-image-upload-widget-info-icon', 'Image upload info')
+        self.image_upload_info_title = Text(page, f'{identifier}-image-upload-widget-info-title-text', 'Image upload info title')
+        self.image_upload_info_description = Text(page, f'{identifier}-image-upload-widget-info-description-text', 'Image upload info description')
 
-        self.upload_button = Button(page,f'{identifier}-image-upload-widget-upload-button', 'Upload')
-        self.remove_button = Button(page,f'{identifier}-image-upload-widget-remove-button', 'Remove')
-        self.upload_input = page.get_by_test_id(f'{identifier}-image-upload-widget-input')
+        self.upload_button = Button(page,f'{identifier}-image-upload-widget-upload-button', 'Upload image')
+        self.remove_button = Button(page,f'{identifier}-image-upload-widget-remove-button', 'Remove image')
+        self.upload_input = FileInput(page, f'{identifier}-image-upload-widget-input', 'Upload')
 
     def check_visible(self, is_image_uploaded: bool = False):
         self.image_upload_info_icon.check_visible()
