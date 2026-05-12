@@ -33,3 +33,20 @@ class TestCourses:
         courses_list_page.sidebar.check_visible()
         courses_list_page.toolbar_view.check_visible()
         courses_list_page.check_visible_empty_view()
+
+    def test_edit_course(self, create_course_page: CreateCoursePage, courses_list_page: CoursesListPage):
+        create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
+        create_course_page.create_course_form_component.fill(title='step_task_7_7_10', estimated_time='1 day',
+                                                             description='task : test_edit_course',
+                                                             max_score='100', min_score='10')
+        create_course_page.image_upload_widget.upload_preview_image('./testdata/files/image.png')
+        create_course_page.create_course_toolbar_vew_component.click_create_course_button()
+        courses_list_page.course_view.check_visible(index=0, title='step_task_7_7_10', estimated_time='1 day',
+                                                             max_score='100', min_score='10')
+        courses_list_page.course_view_menu.click_edit(index=0)
+        create_course_page.create_course_form_component.fill(title='step_task_7_7_10 upd', estimated_time='2 days',
+                                                             description='task : test_edit_course upd',
+                                                             max_score='200', min_score='20')
+        create_course_page.create_course_toolbar_vew_component.click_create_course_button()
+        courses_list_page.course_view.check_visible(index=0, title='step_task_7_7_10 upd', estimated_time='2 days',
+                                                    max_score='200', min_score='20')
