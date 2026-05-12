@@ -40,7 +40,9 @@ class TestCourses:
                                                              description='task : test_edit_course',
                                                              max_score='100', min_score='10')
         create_course_page.image_upload_widget.upload_preview_image('./testdata/files/image.png')
+        create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
         create_course_page.create_course_toolbar_vew_component.click_create_course_button()
+        courses_list_page.toolbar_view.check_visible()
         courses_list_page.course_view.check_visible(index=0, title='step_task_7_7_10', estimated_time='1 day',
                                                              max_score='100', min_score='10')
         courses_list_page.course_view_menu.click_edit(index=0)
@@ -48,5 +50,6 @@ class TestCourses:
                                                              description='task : test_edit_course upd',
                                                              max_score='200', min_score='20')
         create_course_page.create_course_toolbar_vew_component.click_create_course_button()
+        courses_list_page.toolbar_view.check_visible()
         courses_list_page.course_view.check_visible(index=0, title='step_task_7_7_10 upd', estimated_time='2 days',
                                                     max_score='200', min_score='20')
