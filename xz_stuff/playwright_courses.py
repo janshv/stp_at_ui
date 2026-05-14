@@ -23,7 +23,7 @@ with sync_playwright() as playwright:
     expect(registration_button).to_be_visible()
     registration_button.click()
 
-    context.storage_state(path='browser-state.json')
+    context.storage_state(path='../browser-state.json')
 
 with sync_playwright() as playwright:
 

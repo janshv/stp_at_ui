@@ -27,7 +27,7 @@ with sync_playwright() as playwright:
     expect(dashboard_title).to_be_visible()
     expect(dashboard_title).to_have_text('Dashboard')
 
-    context.storage_state(path='browser-state.json')
+    context.storage_state(path='../browser-state.json')
 
     page.wait_for_timeout(2500)
 
