@@ -54,4 +54,4 @@ class Settings(BaseSettings):
             browser_state_file=browser_state_file
         )
 
-print(Settings.initialize())
+settings = Settings.initialize()
