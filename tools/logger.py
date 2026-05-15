@@ -1,13 +1,15 @@
 import logging
+from config import settings
 
 
 def get_logger(name: str) -> logging.Logger:
+    log_level = settings.log_level
 
     logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(log_level)
 
     handler = logging.StreamHandler()
-    handler.setLevel(logging.DEBUG)
+    handler.setLevel(log_level)
 
     formatter = logging.Formatter('%(asctime)s | %(name)s | %(levelname)s | %(message)s')
     handler.setFormatter(formatter)
